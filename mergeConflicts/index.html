@@ -29,5 +29,44 @@ This is the conflicting text that was added in the branch you're merging in.
         </pre>
         <p>To resolve the conflict, you need to edit the file to remove the conflict markers and conflicting lines, and then commit the changes. After that, you can complete the merge.</p>
         <p>It's important to resolve merge conflicts carefully, as they can cause errors in your code if not handled correctly. It's a good idea to review the changes and test your code after resolving a merge conflict to make sure everything is working as expected.</p>
+        <h2>Demonstration</h2>
+        <p>Let's simulate a merge conflict by making conflicting changes to a file in two branches and then merging the branches together. We can practice this using the <code>merge_conflict_test.txt</code> file.</p>
+        <p>Here are the steps to follow using the command line:</p>
+        <ol>
+            <li>Create a new branch called <code>change_1</code>
+            <pre>
+git checkout -b change_1
+            </pre>
+            </li>
+            <li>Change the second line of the <code>merge_conflict_test.txt</code> to some other text.  You can copy the latest observation for KLWT from <a href="https://aviationweather.gov/data/metar/?ids=KLWT&hours=4&taf=1">Aviation Weather Center</a> and paste that over the current observation in the file.</li>
+            <li>Commit the changes to the <code>change_1</code> branch and push the branch to the remote repository.
+            <pre>
+git add . ; git commit -m "Updated observation in change_1 branch" ; git push origin change_1
+            </pre>
+            </li>
+            <li>Switch back to the <code>main</code> branch and create a new branch called <code>change_2</code>
+                <pre>
+git checkout main; git checkout -b change_2
+                </pre></li>
+            <li>Change the second line of the <code>merge_conflict_test.txt</code> to some other text than what you did in the <code>change_1</code> branch.  You can copy the SECOND observation for KLWT from <a href="https://aviationweather.gov/data/metar/?ids=KLWT&hours=4&taf=1">Aviation Weather Center</a> and paste that over the current observation in the file.</li>
+            <li>Commit the changes to the <code>change_2</code> branch and push the branch to the remote repository.
+                <pre>
+git add . ; git commit -m "Updated observation in change_2 branch" ; git push origin change_2
+                </pre></li>
+            <li>Switch back to the <code>main</code> branch and merge the <code>change_1</code> branch into the <code>main</code> branch.
+                <pre>
+git checkout main; git merge change_1
+                </pre></li>
+                
+            <li>Switch back to the <code>main</code> branch and merge the <code>change_2</code> branch into the <code>main</code> branch.
+                <pre>
+git checkout main; git merge change_2
+                </pre></li>
+            <li>Resolve the merge conflict in the <code>merge_conflict_test.txt</code> file by editing the file to remove the conflict markers and conflicting lines.  You can choose to keep one of the observations or combine them as you see fit.</li>
+            <li>Commit the changes to resolve the merge conflict.
+                <pre>
+git add . ; git commit -m "Resolved merge conflict" ; git push origin main
+                </pre></li>
+        </ol>
     </body>
 </html>
