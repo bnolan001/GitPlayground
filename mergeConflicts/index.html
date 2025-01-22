@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Git Merge Conflicts</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            pre {
+                background-color: #f4f4f4;
+                padding: 10px;
+                border-left: 3px solid #ccc;
+                overflow-x: auto;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: small;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Git Merge Conflicts</h1>
+        <p>When you merge branches in Git, you may run into a merge conflict. This happens when you merge branches that have competing changes, and Git needs your help to decide which changes to incorporate in the final merge.</p>
+        <p>When a merge conflict occurs, Git will tell you that a file has a conflict, and it will show you the conflicting changes. For example:</p>
+        <pre>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+This is the original text.
+=======
+This is the conflicting text that was added in the branch you're merging in.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-name
+        </pre>
+        <p>To resolve the conflict, you need to edit the file to remove the conflict markers and conflicting lines, and then commit the changes. After that, you can complete the merge.</p>
+        <p>It's important to resolve merge conflicts carefully, as they can cause errors in your code if not handled correctly. It's a good idea to review the changes and test your code after resolving a merge conflict to make sure everything is working as expected.</p>
+    </body>
+</html>
